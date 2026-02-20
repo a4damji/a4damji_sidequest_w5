@@ -34,7 +34,7 @@ class WorldLevel {
   drawHUD(player, camX, camY) {
     noStroke();
     fill(20);
-    text("Example 4 — JSON world + smooth camera (lerp).", 12, 20);
+    text("Ocean Exploration", 12, 20);
     text(
       "camLerp(JSON): " +
         this.camLerp +
