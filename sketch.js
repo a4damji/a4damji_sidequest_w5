@@ -17,13 +17,13 @@ let gem;
 let sub;
 
 function preload() {
-  bg1 = loadImage("Assets/jellyfish.png");
-  bg2 = loadImage("Assets/fish.png");
-  bg3 = loadImage("Assets/bufffish.png");
-  bg4 = loadImage("Assets/mermaid.png");
-  bg5 = loadImage("Assets/shark.png");
-  gem = loadImage("Assets/gem.png");
-  sub = loadImage("Assets/sub.png");
+  bg1 = loadImage("Assets/jellyfish.png"); // [figure 1]
+  bg2 = loadImage("Assets/fish.png"); // [figure 2]
+  bg3 = loadImage("Assets/bufffish.png"); // [figure 3]
+  bg4 = loadImage("Assets/mermaid.png"); // [figure 4]
+  bg5 = loadImage("Assets/shark.png"); // [figure 5]
+  gem = loadImage("Assets/gem.png"); // [figure 6]
+  sub = loadImage("Assets/sub.png"); // [figure 7]
 
   worldData = loadJSON("world.json"); // load JSON before setup [web:122]
 }
