@@ -12,16 +12,18 @@ Amara Damji, a4damji, 21071052
 
 ## Description
 
-A flappy bird style game. The goal is to keep the blob up and make it through the 'pipes' and make it to the other side.
-
----
+A game where the player is a submarine and exploring different areas of the ocean. They can travel between these areas using the gemstone which teleports to a new place after every interaction.
 
 ## Set up and Interactions
 
-To start the game the user must click "ENTER". To control the blob user needs to press the space bar, up arrow, or w key. If they hit a pipe they will get a you lose screen. To restart at anypoint click enter again.
-
----
+To move the submarine players may use the arrow keys of WASD keys, to interact with the gem simply collide your submarine avatr with the gem.
 
 ## Assets
 
-N/A
+Figure 1. Jellyfish. Created by Amara Damji, 2026.
+Figure 2. Fish. Created by Amara Damji, 2026.
+Figure 3. Bufffish. Created by Amara Damji, 2026.
+Figure 4. Mermaid. Created by Amara Damji, 2026.
+Figure 5. Sharks. Created by Amara Damji, 2026.
+Figure 6. Gem. Created by Amara Damji, 2026.
+Figure 7. Sub. Created by Amara Damji, 2026.

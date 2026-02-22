@@ -84,10 +84,3 @@ function draw() {
 
   level.drawHUD(player, camX, camY);
 }
-
-function keyPressed() {
-  if (key === "r" || key === "R") {
-    const start = worldData.playerStart ?? { x: 300, y: 300, speed: 3 };
-    player = new Player(start.x, start.y, start.speed);
-  }
-}
