@@ -1,20 +1,3 @@
-/*
-Week 5 — Example 4: Data-driven world with JSON + Smooth Camera
-
-Course: GBDA302 | Instructors: Dr. Karen Cochrane & David Han
-Date: Feb. 12, 2026
-
-Move: WASD/Arrows
-
-Learning goals:
-- Extend the JSON-driven world to include camera parameters
-- Implement smooth camera follow using interpolation (lerp)
-- Separate camera behavior from player/world logic
-- Tune motion and feel using external data instead of hard-coded values
-- Maintain player visibility with soft camera clamping
-- Explore how small math changes affect “game feel”
-*/
-
 const VIEW_W = 800;
 const VIEW_H = 480;
 
@@ -24,6 +7,30 @@ let player;
 
 let camX = 0;
 let camY = 0;
+
+let bg1;
+let bg2;
+let bg3;
+let bg4;
+let bg5;
+
+function preload() {
+  bg1 = loadImage(
+    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\jellyfish.png",
+  );
+  bg2 = loadImage(
+    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\fish.png",
+  );
+  bg3 = loadImage(
+    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\bufffish.png",
+  );
+  bg4 = loadImage(
+    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\mermaid.png",
+  );
+  bg5 = loadImage(
+    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\shark.png",
+  );
+}
 
 function preload() {
   worldData = loadJSON("world.json"); // load JSON before setup [web:122]
@@ -50,6 +57,16 @@ function draw() {
   player.x = constrain(player.x, 0, level.w);
   player.y = constrain(player.y, 0, level.h);
 
+  const hitObstacle = level.checkPlayerObstacleCollision(player);
+
+  if (hitObstacle) {
+    if (!level.hitCooldown) {
+      level.handleObstacleHit(hitObstacle);
+      level.hitCooldown = true;
+    }
+  } else {
+    level.hitCooldown = false;
+  }
   // Target camera (center on player)
   let targetX = player.x - width / 2;
   let targetY = player.y - height / 2;

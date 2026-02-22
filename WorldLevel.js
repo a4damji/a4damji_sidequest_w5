@@ -11,6 +11,10 @@ class WorldLevel {
 
     // NEW: camera tuning knob from JSON (data-driven)
     this.camLerp = json.camera?.lerp ?? 0.12;
+    this.hitCooldown = false;
+
+    // Background variants
+    this.bgVariants = [bg1, bg2, bg3, bg4, bg5];
   }
 
   drawBackground() {
@@ -18,13 +22,7 @@ class WorldLevel {
   }
 
   drawWorld() {
-    noStroke();
-    fill(this.bg[0], this.bg[1], this.bg[2]);
-    rect(0, 0, this.w, this.h);
-
-    stroke(245);
-    for (let x = 0; x <= this.w; x += this.gridStep) line(x, 0, x, this.h);
-    for (let y = 0; y <= this.h; y += this.gridStep) line(0, y, this.w, y);
+    image(this.bg[1], 0, 0);
 
     noStroke();
     fill(170, 190, 210);
@@ -49,5 +47,32 @@ class WorldLevel {
       12,
       40,
     );
+  }
+  checkPlayerObstacleCollision(player) {
+    const playerSize = 24;
+    const px = player.x - playerSize / 2;
+    const py = player.y - playerSize / 2;
+
+    for (const o of this.obstacles) {
+      const hit =
+        px < o.x + o.w &&
+        px + playerSize > o.x &&
+        py < o.y + o.h &&
+        py + playerSize > o.y;
+
+      if (hit) return o;
+    }
+
+    return null;
+  }
+
+  handleObstacleHit(obstacle) {
+    // Change background to random preset
+    const index = floor(random(this.bgVariants.length));
+    this.bg = this.bgVariants[index];
+
+    // Move obstacle to new random position
+    obstacle.x = random(100, this.w - 100);
+    obstacle.y = random(100, this.h - 100);
   }
 }
