@@ -13,26 +13,18 @@ let bg2;
 let bg3;
 let bg4;
 let bg5;
+let gem;
+let sub;
 
 function preload() {
-  bg1 = loadImage(
-    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\jellyfish.png",
-  );
-  bg2 = loadImage(
-    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\fish.png",
-  );
-  bg3 = loadImage(
-    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\bufffish.png",
-  );
-  bg4 = loadImage(
-    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\mermaid.png",
-  );
-  bg5 = loadImage(
-    "C:\Users\amara\OneDrive\Desktop\a4damji_sidequest_w5\Assets\shark.png",
-  );
-}
+  bg1 = loadImage("Assets/jellyfish.png");
+  bg2 = loadImage("Assets/fish.png");
+  bg3 = loadImage("Assets/bufffish.png");
+  bg4 = loadImage("Assets/mermaid.png");
+  bg5 = loadImage("Assets/shark.png");
+  gem = loadImage("Assets/gem.png");
+  sub = loadImage("Assets/sub.png");
 
-function preload() {
   worldData = loadJSON("world.json"); // load JSON before setup [web:122]
 }
 

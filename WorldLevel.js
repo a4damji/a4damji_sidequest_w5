@@ -4,7 +4,7 @@ class WorldLevel {
 
     this.w = json.world?.w ?? 2400;
     this.h = json.world?.h ?? 1600;
-    this.bg = json.world?.bg ?? [235, 235, 235];
+
     this.gridStep = json.world?.gridStep ?? 160;
 
     this.obstacles = json.obstacles ?? [];
@@ -15,6 +15,7 @@ class WorldLevel {
 
     // Background variants
     this.bgVariants = [bg1, bg2, bg3, bg4, bg5];
+    this.bg = this.bgVariants[0];
   }
 
   drawBackground() {
@@ -22,11 +23,11 @@ class WorldLevel {
   }
 
   drawWorld() {
-    image(this.bg[1], 0, 0);
+    image(this.bg, 0, 0);
 
     noStroke();
     fill(170, 190, 210);
-    for (const o of this.obstacles) rect(o.x, o.y, o.w, o.h, o.r ?? 0);
+    for (const o of this.obstacles) image(gem, o.x, o.y, o.w, o.h);
   }
 
   drawHUD(player, camX, camY) {
@@ -49,7 +50,7 @@ class WorldLevel {
     );
   }
   checkPlayerObstacleCollision(player) {
-    const playerSize = 24;
+    const playerSize = 50;
     const px = player.x - playerSize / 2;
     const py = player.y - playerSize / 2;
 
