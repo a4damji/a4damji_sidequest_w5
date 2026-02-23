@@ -49,6 +49,8 @@ class WorldLevel {
       40,
     );
   }
+
+  //check if player hit gem
   checkPlayerObstacleCollision(player) {
     const playerSize = 50;
     const px = player.x - playerSize / 2;
@@ -67,12 +69,11 @@ class WorldLevel {
     return null;
   }
 
+  //change background and move gem
   handleObstacleHit(obstacle) {
-    // Change background to random preset
     const index = floor(random(this.bgVariants.length));
     this.bg = this.bgVariants[index];
 
-    // Move obstacle to new random position
     obstacle.x = random(100, this.w - 100);
     obstacle.y = random(100, this.h - 100);
   }
